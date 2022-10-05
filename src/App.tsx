@@ -1,5 +1,10 @@
 import React from "react";
-import SearchPanel from "./components/search-panel/search-panel";
+// import SearchPanel from "./components/search-panel/search-panel";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AppHeader } from "./components/app-header/AppHeader";
+import { Home } from "./components/app-header/Home";
+import { AboutUs } from "./components/app-header/AboutUs";
+import { Error } from "./components/app-header/Error";
 
 type Props = {
   // using `interface` is also ok
@@ -17,8 +22,15 @@ class App extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <SearchPanel />
-        count: {this.state.count}
+        <Router>
+          <AppHeader />
+          <Routes>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/about-us" element={<AboutUs />}></Route>
+            <Route path="/404" element={<Error />}></Route>
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </Router>
       </div>
     );
   }
