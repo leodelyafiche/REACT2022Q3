@@ -2,8 +2,8 @@ import React from "react";
 
 export function AboutUs() {
   return (
-    <div className="">
-      <h2>About Us page</h2>
+    <div className="flex justify-center">
+      <h2>About Us</h2>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { AppHeader } from "./components/app-header/AppHeader";
 import { Home } from "./components/app-header/Home";
 import { AboutUs } from "./components/app-header/AboutUs";
 import { Error } from "./components/app-header/Error";
+import { Search } from "./components/search/Search";
 
 type Props = {
   // using `interface` is also ok
@@ -21,9 +22,13 @@ class App extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <div className="flex justify-center flex-col">
         <Router>
-          <AppHeader />
+          <div className="flex justify-evenly bg-gray-200">
+            <AppHeader />
+            <Search />
+          </div>
+
           <Routes>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/about-us" element={<AboutUs />}></Route>
